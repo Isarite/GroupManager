@@ -1,8 +1,9 @@
+using System;
 /**
  * @(#) BookList.cs
  */
 
-namespace Realizacija.Library.Views
+namespace Invensa.Library.Views
 {
 	public class BookList
 	{

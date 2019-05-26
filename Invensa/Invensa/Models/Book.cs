@@ -1,14 +1,15 @@
+using System;
 /**
  * @(#) Book.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public class Book
 	{
 		String Title;
 		
-		Integer Quantity;
+		int Quantity;
 		
 		String Author;
 		

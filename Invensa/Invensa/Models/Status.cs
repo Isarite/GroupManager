@@ -1,8 +1,10 @@
+using System;
+
 /**
  * @(#) Status.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public enum Status
 	{

@@ -2,7 +2,7 @@
  * @(#) MemberMainView.cs
  */
 
-namespace Realizacija.Core.Views
+namespace Invensa.Core.Views
 {
 	public class MemberMainView
 	{

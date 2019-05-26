@@ -2,7 +2,7 @@
  * @(#) MathController.cs
  */
 
-namespace Realizacija.Companies.Controllers
+namespace Invensa.Companies.Controllers
 {
 	public class MathController
 	{

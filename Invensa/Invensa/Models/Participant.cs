@@ -1,12 +1,14 @@
+using System;
+
 /**
  * @(#) Participant.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public class Participant
 	{
-		date Date;
+		DateTime Date;
 		
 		String Role;
 		

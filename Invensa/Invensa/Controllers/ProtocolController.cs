@@ -2,7 +2,7 @@
  * @(#) ProtocolController.cs
  */
 
-namespace Realizacija.Users.Controllers
+namespace Invensa.Users.Controllers
 {
 	public class ProtocolController
 	{

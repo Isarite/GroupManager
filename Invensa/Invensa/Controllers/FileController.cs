@@ -2,7 +2,7 @@
  * @(#) FileController.cs
  */
 
-namespace Realizacija.Core.Controllers
+namespace Invensa.Core.Controllers
 {
 	public class FileController
 	{

@@ -1,28 +1,30 @@
+using System;
+
 /**
  * @(#) Report.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public class Report
 	{
-		Integer year;
+		int year;
 		
-		Integer Laikotarpis;
+		int timeline;
 		
-		Integer equity;
+		int equity;
 		
-		Integer assets;
+		int assets;
 		
-		Integer sales;
+		int sales;
 		
 		double profit;
 		
 		double price;
 		
-		Integer dividends;
+		int dividends;
 		
-		Integer shares;
+		int shares;
 		
 		double ROA;
 		
@@ -40,7 +42,7 @@ namespace Realizacija.Models
 		
 		double PE;
 		
-		boolean _Public;
+		Boolean _Public;
 		
 		public void Insert(  )
 		{

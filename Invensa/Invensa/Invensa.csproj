@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -168,14 +169,46 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
+    <Compile Include="Controllers\CRUD.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MathController.cs" />
+    <Compile Include="Controllers\ProtocolController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Views\Library\BookInfo.cs" />
+    <Compile Include="Views\Library\BookList.cs" />
+    <Compile Include="Views\Companies\CompaniesList.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Views\Users\CandidateListView.cs" />
+    <Compile Include="Views\Companies\NewCompanyForm.cs" />
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\Protocol.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Questionnaire.cs" />
+    <Compile Include="Views\Users\CreateProtocol.cs" />
+    <Compile Include="Views\Users\EmailInterface.cs" />
+    <Compile Include="Views\Core\LibraryMainView.cs" />
+    <Compile Include="Views\Core\ManagerMainView.cs" />
+    <Compile Include="Views\Core\MemberMainView.cs" />
+    <Compile Include="Views\Users\QuestionnaireView.cs" />
+    <Compile Include="Views\Users\QuestionnaireList.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\Solution.cs" />
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Views\Companies\WACCForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

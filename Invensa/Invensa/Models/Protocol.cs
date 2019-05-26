@@ -1,14 +1,16 @@
+using System;
+
 /**
  * @(#) Protocol.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public class Protocol
 	{
-		date Date;
+		DateTime Date;
 		
-		boolean Quorum;
+		Boolean Quorum;
 		
 		Participant participant;
 		

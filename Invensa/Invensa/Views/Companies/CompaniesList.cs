@@ -1,8 +1,9 @@
+using System;
 /**
  * @(#) CompaniesList.cs
  */
 
-namespace Realizacija.Companies.Views
+namespace Invensa.Companies.Views
 {
 	public class CompaniesList
 	{

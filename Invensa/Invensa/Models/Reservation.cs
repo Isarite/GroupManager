@@ -1,16 +1,18 @@
+using System;
+
 /**
  * @(#) Reservation.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public class Reservation
 	{
-		date Date;
+		DateTime Date;
 		
-		date ReturnDate;
+		DateTime ReturnDate;
 		
-		boolean IsReturned;
+		Boolean IsReturned;
 		
 		public void EditDate(  )
 		{

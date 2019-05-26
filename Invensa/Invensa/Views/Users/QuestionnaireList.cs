@@ -2,7 +2,7 @@
  * @(#) QuestionnaireList.cs
  */
 
-namespace Realizacija.Users.Views
+namespace Invensa.Users.Views
 {
 	public class QuestionnaireList
 	{

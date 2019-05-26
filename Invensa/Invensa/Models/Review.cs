@@ -1,14 +1,15 @@
+using System;
 /**
  * @(#) Review.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public class Review
 	{
 		String Text;
 		
-		date Date;
+		DateTime Date;
 		
 		public void InsertReview(  )
 		{

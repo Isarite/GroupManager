@@ -2,7 +2,7 @@
  * @(#) UserController.cs
  */
 
-namespace Realizacija.Users.Controllers
+namespace Invensa.Users.Controllers
 {
 	public class UserController
 	{

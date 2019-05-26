@@ -1,8 +1,9 @@
+using System;
 /**
  * @(#) BookInfo.cs
  */
 
-namespace Realizacija.Library.Views
+namespace Invensa.Library.Views
 {
 	public class BookInfo
 	{

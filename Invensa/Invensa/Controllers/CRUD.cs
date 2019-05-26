@@ -2,7 +2,7 @@
  * @(#) CRUD.cs
  */
 
-namespace Realizacija.Library.Controllers
+namespace Invensa.Library.Controllers
 {
 	public class CRUD
 	{

@@ -1,8 +1,10 @@
+using System;
+
 /**
  * @(#) Questionnaire.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public class Questionnaire
 	{
@@ -12,7 +14,7 @@ namespace Realizacija.Models
 		
 		String Answers;
 		
-		date Date;
+		DateTime Date;
 		
 	}
 	

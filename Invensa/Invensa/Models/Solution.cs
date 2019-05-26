@@ -1,8 +1,10 @@
+using System;
+
 /**
  * @(#) Solution.cs
  */
 
-namespace Realizacija.Models
+namespace Invensa.Models
 {
 	public class Solution
 	{
