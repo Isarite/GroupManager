@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 /**
@@ -10,12 +10,13 @@ namespace Invensa.Models
 {
 	public class Participant
 	{
-		DateTime Date;
+        public int Id { get; set; }
+		public DateTime Date { get; set; }
 		
-		String Role;
-		
-		User user;
-		
-	}
+		public String Role { get; set; }
+        [ForeignKey("user")]
+        public int userId { get; set; }
+        public virtual User user { get; set; }
+    }
 	
 }

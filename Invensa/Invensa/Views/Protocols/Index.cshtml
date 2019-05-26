@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Invensa.Models.Protocol>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Quorum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quorum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Date }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Date }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Date })
+        </td>
+    </tr>
+}
+
+</table>

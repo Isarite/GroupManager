@@ -1,10 +1,12 @@
-/**
- * @(#) MathController.cs
- */
 
+
+using System.Web.Mvc;
+/**
+* @(#) MathController.cs
+*/
 namespace Invensa.Companies.Controllers
 {
-	public class MathController
+	public class MathController:Controller
 	{
 		public void RequestWACCForm(  )
 		{

@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 /**
  * @(#) Book.cs
@@ -9,19 +9,19 @@ namespace Invensa.Models
 {
 	public class Book
 	{
-		String Title;
+		public String Title { get; set; }
 		
-		int Quantity;
-		
-		String Author;
-		
-		String Description;
-		
-		Reservation reservation;
-		
-		Review review;
-		
-		public void TakeBookInfo(  )
+		public int Quantity { get; set; }
+
+        public String Author { get; set; }
+
+        public String Description { get; set; }
+
+        public virtual Reservation reservation { get; set; }
+
+        public virtual Review review { get; set; }
+
+        public void TakeBookInfo(  )
 		{
 			
 		}

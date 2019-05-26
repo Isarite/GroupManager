@@ -10,13 +10,14 @@ namespace Invensa.Models
 {
 	public class Reservation
 	{
-		DateTime Date;
-		
-		DateTime ReturnDate;
-		
-		Boolean IsReturned;
-		
-		public void EditDate(  )
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+
+        public DateTime ReturnDate { get; set; }
+
+        public Boolean IsReturned { get; set; }
+
+        public void EditDate(  )
 		{
 			
 		}

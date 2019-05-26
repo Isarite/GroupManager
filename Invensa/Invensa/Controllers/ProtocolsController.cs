@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -11,107 +11,107 @@ using Invensa.Models;
 
 namespace Invensa.Controllers
 {
-    public class CompaniesController : Controller
+    public class ProtocolsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Companies
+        // GET: Protocols
         public ActionResult Index()
         {
-            return View(db.Companies.ToList());
+            return View(db.Protocols.ToList());
         }
 
-        // GET: Companies/Details/5
-        public ActionResult Details(string id)
+        // GET: Protocols/Details/5
+        public ActionResult Details(DateTime id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = db.Companies.Find(id);
-            if (company == null)
+            Protocol protocol = db.Protocols.Find(id);
+            if (protocol == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(protocol);
         }
 
-        // GET: Companies/Create
+        // GET: Protocols/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Companies/Create
+        // POST: Protocols/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Director,Description,Country")] Company company)
+        public ActionResult Create([Bind(Include = "Date,Quorum")] Protocol protocol)
         {
             if (ModelState.IsValid)
             {
-                db.Companies.Add(company);
+                db.Protocols.Add(protocol);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(company);
+            return View(protocol);
         }
 
-        // GET: Companies/Edit/5
-        public ActionResult Edit(string id)
+        // GET: Protocols/Edit/5
+        public ActionResult Edit(DateTime id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = db.Companies.Find(id);
-            if (company == null)
+            Protocol protocol = db.Protocols.Find(id);
+            if (protocol == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(protocol);
         }
 
-        // POST: Companies/Edit/5
+        // POST: Protocols/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Title,Director,Description,Country")] Company company)
+        public ActionResult Edit([Bind(Include = "Date,Quorum")] Protocol protocol)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(company).State = EntityState.Modified;
+                db.Entry(protocol).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(company);
+            return View(protocol);
         }
 
-        // GET: Companies/Delete/5
-        public ActionResult Delete(string id)
+        // GET: Protocols/Delete/5
+        public ActionResult Delete(DateTime id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = db.Companies.Find(id);
-            if (company == null)
+            Protocol protocol = db.Protocols.Find(id);
+            if (protocol == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(protocol);
         }
 
-        // POST: Companies/Delete/5
+        // POST: Protocols/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(DateTime id)
         {
-            Company company = db.Companies.Find(id);
-            db.Companies.Remove(company);
+            Protocol protocol = db.Protocols.Find(id);
+            db.Protocols.Remove(protocol);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -125,42 +125,17 @@ namespace Invensa.Controllers
             base.Dispose(disposing);
         }
 
-        public void RequestNewCompanyForm()
+        public void OpenProtocolCreation()
         {
 
         }
 
-        public void SubmitForm()
+        public void GenerateProtocol()
         {
 
         }
 
-        public void CheckCorectness()
-        {
-
-        }
-
-        public void RequestInsertNewCompany()
-        {
-
-        }
-
-        public void CheckErrors()
-        {
-
-        }
-
-        public void RequestCompaniesListView()
-        {
-
-        }
-
-        public void RequestOpenInfoDetail()
-        {
-
-        }
-
-        public void GetCompany()
+        public void GenerateProtocolText()
         {
 
         }

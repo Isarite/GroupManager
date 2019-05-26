@@ -10,7 +10,8 @@ namespace Invensa.Models
 {
 	public class Question
 	{
-		String Content;
+        public int Id { get; set; }
+		public String Content { get; set; }
 		
 	}
 	

@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Invensa.Models;
+using Invensa.Data;
 
 namespace Invensa
 {

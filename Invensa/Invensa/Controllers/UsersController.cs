@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -11,107 +11,107 @@ using Invensa.Models;
 
 namespace Invensa.Controllers
 {
-    public class CompaniesController : Controller
+    public class UsersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Companies
+        // GET: Users
         public ActionResult Index()
         {
-            return View(db.Companies.ToList());
+            return View(db.Users.ToList());
         }
 
-        // GET: Companies/Details/5
-        public ActionResult Details(string id)
+        // GET: Users/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = db.Companies.Find(id);
-            if (company == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(user);
         }
 
-        // GET: Companies/Create
+        // GET: Users/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Companies/Create
+        // POST: Users/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Director,Description,Country")] Company company)
+        public ActionResult Create([Bind(Include = "Id,name,surname,email,status,password")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Companies.Add(company);
+                db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(company);
+            return View(user);
         }
 
-        // GET: Companies/Edit/5
-        public ActionResult Edit(string id)
+        // GET: Users/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = db.Companies.Find(id);
-            if (company == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(user);
         }
 
-        // POST: Companies/Edit/5
+        // POST: Users/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Title,Director,Description,Country")] Company company)
+        public ActionResult Edit([Bind(Include = "Id,name,surname,email,status,password")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(company).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(company);
+            return View(user);
         }
 
-        // GET: Companies/Delete/5
-        public ActionResult Delete(string id)
+        // GET: Users/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = db.Companies.Find(id);
-            if (company == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(user);
         }
 
-        // POST: Companies/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Company company = db.Companies.Find(id);
-            db.Companies.Remove(company);
+            User user = db.Users.Find(id);
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -125,42 +125,87 @@ namespace Invensa.Controllers
             base.Dispose(disposing);
         }
 
-        public void RequestNewCompanyForm()
+        public void ViewQuestionnaires()
         {
 
         }
 
-        public void SubmitForm()
+        public void ViewQuestionnaire()
         {
 
         }
 
-        public void CheckCorectness()
+        public void ListUsers()
         {
 
         }
 
-        public void RequestInsertNewCompany()
+        public void ViewUsers()
         {
 
         }
 
-        public void CheckErrors()
+        public void OpenUserList()
         {
 
         }
 
-        public void RequestCompaniesListView()
+        public void openQuestionnaires()
         {
 
         }
 
-        public void RequestOpenInfoDetail()
+        public void OpenQuestionnaire()
         {
 
         }
 
-        public void GetCompany()
+        public void changeUserStatus()
+        {
+
+        }
+
+        public void Login()
+        {
+
+        }
+
+        public void PrintQuestionnaire()
+        {
+
+        }
+
+        public void LogOut()
+        {
+
+        }
+
+        public void EndSession()
+        {
+
+        }
+
+        public void OpenCandidateList()
+        {
+
+        }
+
+        public void GrantMembership()
+        {
+
+        }
+
+        public void OpenQuestionnaireCreation()
+        {
+
+        }
+
+        public void SubmitQuestionnaire()
+        {
+
+        }
+
+        public void ValidateQuestionnaire()
         {
 
         }

@@ -1,0 +1,26 @@
+﻿@model Invensa.Models.Protocol
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Protocol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Quorum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quorum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Date }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

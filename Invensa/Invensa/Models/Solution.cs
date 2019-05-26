@@ -10,12 +10,13 @@ namespace Invensa.Models
 {
 	public class Solution
 	{
-		String Type;
-		
-		String Description;
-		
-		User affected_user;
-		
-	}
+        public int Id { get; set; }
+        public String Type { get; set; }
+
+        public String Description { get; set; }
+
+        public virtual User affected_user { get; set; }
+
+    }
 	
 }

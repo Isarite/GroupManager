@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 /**
@@ -9,15 +10,14 @@ namespace Invensa.Models
 {
 	public class Company
 	{
-		String title;
-		
-		String director;
-		
-		String description;
-		
-		String country;
-		
-		List<Report> report;
+		public String Title { get; set; }
+
+        public String Director { get; set; }
+
+        public String Description { get; set; }
+
+        public String Country { get; set; }
+        public virtual IEnumerable<Report> Reports { get; set; }
 		
 		public void InsertNewCompany(  )
 		{

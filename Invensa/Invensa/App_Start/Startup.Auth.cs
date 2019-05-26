@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Invensa.Models;
+using Invensa.Data;
 
 namespace Invensa
 {

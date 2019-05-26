@@ -9,11 +9,12 @@ namespace Invensa.Models
 {
 	public class Review
 	{
-		String Text;
-		
-		DateTime Date;
-		
-		public void InsertReview(  )
+        public int Id { get; set; }
+        public String Text { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public void InsertReview(  )
 		{
 			
 		}

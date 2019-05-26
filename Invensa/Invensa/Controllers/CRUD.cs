@@ -1,10 +1,12 @@
-/**
- * @(#) CRUD.cs
- */
 
+
+using System.Web.Mvc;
+/**
+* @(#) CRUD.cs
+*/
 namespace Invensa.Library.Controllers
 {
-	public class CRUD
+	public class CRUD:Controller
 	{
 		public void OpenBookList(  )
 		{
