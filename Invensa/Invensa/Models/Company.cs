@@ -15,7 +15,7 @@ namespace Invensa.Models
 		
 		String country;
 		
-		Report report;
+		List<Report> report;
 		
 		public void InsertNewCompany(  )
 		{
