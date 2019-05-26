@@ -1,0 +1,31 @@
+/**
+ * @(#) Company.cs
+ */
+
+namespace Realizacija.Models
+{
+	public class Company
+	{
+		String title;
+		
+		String director;
+		
+		String description;
+		
+		String country;
+		
+		Report report;
+		
+		public void InsertNewCompany(  )
+		{
+			
+		}
+		
+		public void Select(  )
+		{
+			
+		}
+		
+	}
+	
+}
