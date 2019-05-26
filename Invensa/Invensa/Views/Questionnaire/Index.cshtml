@@ -1,24 +1,21 @@
 ﻿@model IEnumerable<Invensa.Models.Questionnaire>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Anketos";
 }
 
-<h2>Index</h2>
+<h2>Anketos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.user.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.surname)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.AcademicGroup)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reason)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Answers)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
@@ -28,25 +25,24 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AcademicGroup)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reason)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Answers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcademicGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Peržiūrėti", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Naikinti", "Delete", new { id = item.Id })
+        </td>
+    </tr>
     }
 
 </table>
