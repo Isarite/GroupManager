@@ -17,9 +17,9 @@ namespace Invensa.Models
 
         public virtual Participant participant { get; set; }
 
-        public virtual IEnumerable<Solution> Solutions { get; set; }
+        public virtual ICollection<Solution> Solutions { get; set; }
 
-        public virtual IEnumerable<Question> Questions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
 
 		
 	}

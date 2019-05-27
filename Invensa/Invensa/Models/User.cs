@@ -16,15 +16,18 @@ namespace Invensa.Models
         [Display(Name = "Pavardė")]
         public String surname { get; set; }
         [Display(Name = "El paštas")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public String email { get; set; }
         [Display(Name = "Statusas")]
         public Status status { get; set; }
         [Display(Name = "Slaptažodis")]
         public String password { get; set; }
 
-        public virtual IEnumerable<Questionnaire> Questionnaires { get; set; }
-        public virtual IEnumerable<Reservation> Reservations { get; set; }
-        public virtual IEnumerable<Review> Reviews { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Solution> Solutions { get; set; }
+
     }
-	
+
 }

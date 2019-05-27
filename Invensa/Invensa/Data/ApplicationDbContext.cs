@@ -74,6 +74,8 @@ namespace Invensa.Data
             modelBuilder.Entity<Review>().HasKey(k => k.Id);
             modelBuilder.Entity<Solution>().HasKey(k => k.Id);
             modelBuilder.Entity<User>().HasKey(k => k.Id);
+            modelBuilder.Entity<Solution>().HasMany(o => o.affected_users).WithMany(o => o.Solutions);
+
 
 
 

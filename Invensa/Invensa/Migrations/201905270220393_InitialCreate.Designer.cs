@@ -13,7 +13,7 @@ namespace Invensa.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201905261533448_InitialCreate"; }
+            get { return "201905270220393_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

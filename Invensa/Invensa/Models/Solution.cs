@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -15,8 +16,8 @@ namespace Invensa.Models
 
         public String Description { get; set; }
 
-        public virtual User affected_user { get; set; }
+        public virtual ICollection<User> affected_users { get; set; }
 
     }
-	
+
 }

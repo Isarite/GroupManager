@@ -40,14 +40,31 @@ namespace Invensa.Controllers
                     grant.status = Status.Member;
                     grant.password = Membership.GeneratePassword(12, 1);
                     string password = grant.password;
-                    string nameTo = grant.name;
+                    string nameTo = grant.email;
                     TempData["message"] = "Kandidatai priimti sėkmingai";
                     db.SaveChanges();
-                    SendEmail(nameTo,password);
+                    //SendEmail(nameTo,password);
                 }
             }
             db.SaveChanges();
+            CreateNewUserDecision(candidateIds);
             return RedirectToAction("Index");
+        }
+
+        void CreateNewUserDecision(IEnumerable<int> candidateIds)
+        {
+            Solution solution = new Solution();
+            solution.Description = "Pridėti nariai:";
+            if (solution.affected_users == null)
+                solution.affected_users = new List<User>();
+            foreach (var item in candidateIds)
+            {
+                User affected = db.Users.FirstOrDefault(s => s.Id == item);           
+                solution.affected_users.Add(affected);
+            }
+            solution.Type = "Narių pridėjimas";
+            db.Solutions.Add(solution);
+            db.SaveChanges();
         }
         string domain= "mail.Invensa.ktu.edu";
         string credentials= "info@Invensa.ktu.edu";
