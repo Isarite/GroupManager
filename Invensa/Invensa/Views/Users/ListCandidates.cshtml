@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Invensa.Models.User>
+
+@{
+    /**/
+
+    ViewBag.Title = "Rodyti kandidatus";
+}
+
+<h2>Rodyti kandidatus</h2>
+
+
+<form action="GrantMembership" method="POST">
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                Priimti?
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    <input type="checkbox" class="checkBox" value="@item.Id" name="candidateIds" />
+                </td>
+            </tr>
+        }
+
+    </table>
+    <input type="submit" value ="Priimti"class="btn btn-default" />
+</form>
+
