@@ -57,7 +57,6 @@ namespace Invensa.Controllers
                 db.Questionnaires.Add(questionnaire);
                 db.Users.Add(questionnaire.user);
                 db.SaveChanges();
-                Response.Write("<script language=javascript>alert('Anketa išsaugota sėkmingai.')</script>");
                 TempData["message"] = "Anketa išsiųsta sėkmingai";
 
 

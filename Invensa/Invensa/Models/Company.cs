@@ -19,7 +19,7 @@ namespace Invensa.Models
         public String Country { get; set; }
         public virtual ICollection<Report> Reports { get; set; }
 		
-		public void InsertNewCompany(  )
+		public void InsertNewCompany()
 		{
 			
 		}
