@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id = new { Title = item.Title, Author = item.Author } }) |
-            @Html.ActionLink("Delete", "Delete", new { id = new { Title = item.Title, Author = item.Author } })
-            @Html.ActionLink("Delete", "Delete", new { id = new { Title = item.Title, Author = item.Author } })
+            @Html.ActionLink("Rodyti detalią informaciją", "Details", new { id = new { Title = item.Title, Author = item.Author } }) |
+            @Html.ActionLink("Rašyti atsiliepimą", "Comment", new { id = new { Title = item.Title, Author = item.Author } })
+           
         </td>
     </tr>
 }
