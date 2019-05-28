@@ -172,7 +172,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
-    <Compile Include="Controllers\CRUD.cs" />
+    <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -191,6 +191,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Views\CRUD\NewCompanyForm.cs" />
     <Compile Include="Views\Library\BookInfo.cs" />
     <Compile Include="Views\Library\BookList.cs" />
     <Compile Include="Views\Companies\CompaniesList.cs" />
@@ -199,7 +200,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Views\Users\CandidateListView.cs" />
-    <Compile Include="Views\Companies\NewCompanyForm.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Protocol.cs" />
     <Compile Include="Models\Question.cs" />
@@ -302,6 +302,11 @@
     <Content Include="Views\Questionnaire\Index.cshtml" />
     <Content Include="Views\Users\ListCandidates.cshtml" />
     <Content Include="Views\Protocols\ListQuestions.cshtml" />
+    <Content Include="Views\CRUD\Create.cshtml" />
+    <Content Include="Views\CRUD\Delete.cshtml" />
+    <Content Include="Views\CRUD\Details.cshtml" />
+    <Content Include="Views\CRUD\Edit.cshtml" />
+    <Content Include="Views\CRUD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -316,6 +321,7 @@
       <DependentUpon>201905280314368_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
