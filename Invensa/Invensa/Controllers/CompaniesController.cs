@@ -18,6 +18,7 @@ namespace Invensa.Controllers
         // GET: Companies
         public ActionResult Index()
         {
+            ViewBag.Users = db.Users.ToList();
             return View(db.Companies.ToList());
         }
 
