@@ -100,7 +100,8 @@ namespace Invensa.Controllers
         public ActionResult WACC(WACCForm data)
         {
             decimal WACC = data.Debt * data.DebtPrice + data.Equity * data.EquitytPrice;
-            return Content(WACC.ToString());
+            ViewBag.Result = WACC.ToString();
+            return View();
         }
 
         // GET: Companies/Delete/5
