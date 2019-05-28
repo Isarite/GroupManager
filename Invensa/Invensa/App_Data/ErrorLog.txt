@@ -73,3 +73,59 @@ Stack Trace:
    at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 2019-05-28 20:53:43 **********
+Exception Type: System.Web.HttpException
+Exception: A potentially dangerous Request.Path value was detected from the client (:).
+Source: DefaultPage
+Stack Trace: 
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
+********** 2019-05-28 20:54:19 **********
+Exception Type: System.Web.HttpException
+Exception: A potentially dangerous Request.Path value was detected from the client (:).
+Source: DefaultPage
+Stack Trace: 
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
+********** 2019-05-28 20:54:21 **********
+Exception Type: System.Web.HttpException
+Exception: A potentially dangerous Request.Path value was detected from the client (:).
+Source: DefaultPage
+Stack Trace: 
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
+********** 2019-05-28 20:54:23 **********
+Exception Type: System.Web.HttpException
+Exception: A potentially dangerous Request.Path value was detected from the client (:).
+Source: DefaultPage
+Stack Trace: 
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
+********** 2019-05-28 23:30:10 **********
+Exception Type: System.Web.HttpException
+Exception: A potentially dangerous Request.Path value was detected from the client (:).
+Source: DefaultPage
+Stack Trace: 
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
+********** 2019-05-28 23:33:53 **********
+Exception Type: System.Web.HttpException
+Exception: A potentially dangerous Request.Path value was detected from the client (:).
+Source: DefaultPage
+Stack Trace: 
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
+********** 2019-05-28 23:36:03 **********
+Exception Type: System.Web.HttpException
+Exception: A potentially dangerous Request.Path value was detected from the client (:).
+Source: DefaultPage
+Stack Trace: 
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
