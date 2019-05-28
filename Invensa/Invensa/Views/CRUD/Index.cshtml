@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Invensa.Models.Book>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Peržiūrėti knygas";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Įvesti knygą", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,8 +35,8 @@
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = new { Title = item.Title, Author = item.Author } }) |
             @Html.ActionLink("Details", "Details", new { id = new { Title = item.Title, Author = item.Author } }) |
+            @Html.ActionLink("Delete", "Delete", new { id = new { Title = item.Title, Author = item.Author } })
             @Html.ActionLink("Delete", "Delete", new { id = new { Title = item.Title, Author = item.Author } })
         </td>
     </tr>

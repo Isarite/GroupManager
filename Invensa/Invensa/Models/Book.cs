@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 /**
@@ -9,12 +10,16 @@ namespace Invensa.Models
 {
 	public class Book
 	{
+        [DisplayName("Pavadinimas")]
 		public String Title { get; set; }
 		
-		public int Quantity { get; set; }
+        [DisplayName("Kiekis")]
+        public int Quantity { get; set; }
 
+        [DisplayName("Autorius")]
         public String Author { get; set; }
 
+        [DisplayName("Apraðymas")]
         public String Description { get; set; }
 
         public virtual Reservation reservation { get; set; }
