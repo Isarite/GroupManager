@@ -17,6 +17,7 @@ namespace Invensa.Models
         public String Description { get; set; }
 
         public virtual ICollection<User> affected_users { get; set; }
+        public virtual Protocol protocol { get; set; }
 
     }
 

@@ -12,6 +12,7 @@ namespace Invensa.Models
 	{
         public int Id { get; set; }
 		public String Content { get; set; }
+        public virtual Protocol protocol { get; set; }
 		
 	}
 	

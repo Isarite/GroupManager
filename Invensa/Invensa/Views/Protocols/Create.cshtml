@@ -1,44 +1,115 @@
 ﻿@model Invensa.Models.Protocol
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Generuoti Protokolą";
 }
 
-<h2>Create</h2>
+<h2>Generuoti Protokolą</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Protocol</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Quorum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Quorum)
-                    @Html.ValidationMessageFor(model => model.Quorum, "", new { @class = "text-danger" })
-                </div>
-            </div>
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Quorum, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Quorum)
+                @Html.ValidationMessageFor(model => model.Quorum, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
+    <fieldset>
+        <legend>Klausimai</legend>
+        <div>
+            <input id="btnAddQuestion" type="button"
+                   onclick="addRow();" value="Naujas Klausimas" />
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Turinys
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="tbQuestions"></tbody>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend>Sprendimai</legend>
+        <div>
+            <input id="btnAddSolution" type="button"
+                   onclick="addSRow();" value="Naujas Klausimas" />
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Turinys
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="tbSolutions"></tbody>
+        </table>
+    </fieldset>
+
+    <table class="table">
+        <tr>
+            <th>
+                Vardas
+            </th>
+            <th>
+                Pavardė
+            </th>
+            <th>
+                Paštas
+            </th>
+            <th>
+                Dalyvauja?
+            </th>
+        </tr>
+
+        @foreach (Invensa.Models.User item in ViewBag.Users)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    <input type="checkbox" class="checkBox" value="@item.Id" name="newParticipants" />
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Kurti" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>
@@ -47,4 +118,50 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script language="javascript" type="text/javascript">
+        function addRow() {
+
+            @{
+                Model.Questions.Add(new Invensa.Models.Question());
+            }
+
+            var index = $("#tbQuestions").children("tr").length;
+
+            var indexCell = "<td style='display:none'><input name='Questions.Index' type = 'hidden' value = '" + index + "' /></td > ";
+            var contentCell = "<td><input id='Questions_" + index + "__Content' name = 'Questions[" + index + "].Content' type = 'text' value = '' /></td > ";
+            var removeCell = "<td><input id='btnAddQuestion' type='button'value = 'Pašalinti' onclick = 'removeSRow(" + index + ");' /></td > ";
+
+            var newRow = "<tr id='trQuestion" + index + "'>" +
+            indexCell + contentCell + removeCell + "</tr>";
+            $("#tbQuestions").append(newRow);
+        }
+
+        function removeRow(id) {
+            var controlToBeRemoved = "#trQuestion" + id;
+            $(controlToBeRemoved).remove();
+        }
+</script>
+<script language="javascript" type="text/javascript">
+        function addSRow() {
+
+            @{
+                Model.Solutions.Add(new Invensa.Models.Solution());
+            }
+
+            var index = $("#tbSolutions").children("tr").length;
+
+            var indexCell = "<td style='display:none'><input name='Solutions.Index' type = 'hidden' value = '" + index + "' /></td > ";
+            var descriptionCell = "<td><input id='Solutions_" + index + "__Description' name = 'Solutions[" + index + "].Description' type = 'text' value = '' /></td > ";
+            var removeCell = "<td><input id='btnAddSolution' type='button'value = 'Pašalinti' onclick = 'removeRow(" + index + ");' /></td > ";
+
+            var newRow = "<tr id='trSolution" + index + "'>" +
+            indexCell + descriptionCell + removeCell + "</tr>";
+            $("#tbSolutions").append(newRow);
+        }
+
+        function removeSRow(id) {
+            var controlToBeRemoved = "#trSolution" + id;
+            $(controlToBeRemoved).remove();
+        }
+</script>
 }

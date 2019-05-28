@@ -15,7 +15,7 @@ namespace Invensa.Models
 
         public Boolean Quorum { get; set; }
 
-        public virtual Participant participant { get; set; }
+        public virtual ICollection<Participant> Participants { get; set; }
 
         public virtual ICollection<Solution> Solutions { get; set; }
 

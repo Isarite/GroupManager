@@ -184,9 +184,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905270951322_InitialCreate.cs" />
-    <Compile Include="Migrations\201905270951322_InitialCreate.Designer.cs">
-      <DependentUpon>201905270951322_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201905280314368_InitialCreate.cs" />
+    <Compile Include="Migrations\201905280314368_InitialCreate.Designer.cs">
+      <DependentUpon>201905280314368_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -301,6 +301,7 @@
     <Content Include="Views\Questionnaire\Edit.cshtml" />
     <Content Include="Views\Questionnaire\Index.cshtml" />
     <Content Include="Views\Users\ListCandidates.cshtml" />
+    <Content Include="Views\Protocols\ListQuestions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -311,8 +312,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905270951322_InitialCreate.resx">
-      <DependentUpon>201905270951322_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905280314368_InitialCreate.resx">
+      <DependentUpon>201905280314368_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

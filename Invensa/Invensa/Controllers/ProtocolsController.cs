@@ -39,7 +39,14 @@ namespace Invensa.Controllers
         // GET: Protocols/Create
         public ActionResult Create()
         {
-            return View();
+            Protocol protocol = new Protocol();
+            protocol.Questions = new List<Question>();
+            protocol.Solutions = new List<Solution>();
+            protocol.Participants = new List<Participant>();
+            protocol.Date = DateTime.Now;
+            ViewBag.Users = db.Users;
+
+            return View(protocol);
         }
 
         // POST: Protocols/Create
@@ -47,16 +54,36 @@ namespace Invensa.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Date,Quorum")] Protocol protocol)
+        public ActionResult Create([Bind(Include = "Date,Quorum,Participants,Solutions,Questions")] Protocol protocol, ICollection<int> newParticipants)
         {
             if (ModelState.IsValid)
             {
+                var solutions = db.Solutions.Where(s => s.protocol == null).ToList();
+                if (protocol.Solutions == null)
+                    protocol.Solutions = new List<Solution>();
+                foreach (Solution s in solutions)
+                    protocol.Solutions.Add(s);
+                protocol.Participants = new List<Participant>();
+                protocol.Participants.Add(new Participant { user = currentUser(), Date = protocol.Date, Role = "Protokolinikas" });
+                List<User> users = db.Users.Where(u => newParticipants.Contains(u.Id)).ToList();
+                foreach (User u in users)
+                    protocol.Participants.Add(new Participant { user = u, Date = protocol.Date, Role = "Dalyvis" });
                 db.Protocols.Add(protocol);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(protocol);
+        }
+
+        User currentUser()
+        {
+            return db.Users.FirstOrDefault();
+        }
+
+        public PartialViewResult ListQuestions()
+        {           
+            return PartialView("ListQuestions", db.Questions.Where(s => s.protocol == null).ToList());
         }
 
         // GET: Protocols/Edit/5
