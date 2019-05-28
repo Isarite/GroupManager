@@ -95,6 +95,13 @@ namespace Invensa.Controllers
             }
             return View(company);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult WACC(WACCForm data)
+        {
+            decimal WACC = data.Debt * data.DebtPrice + data.Equity * data.EquitytPrice;
+            return Content(WACC.ToString());
+        }
 
         // GET: Companies/Delete/5
         public ActionResult Delete(string id)

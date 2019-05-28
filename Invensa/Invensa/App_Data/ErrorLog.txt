@@ -129,3 +129,11 @@ Stack Trace:
    at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
    at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
 
+********** 2019-05-29 01:08:45 **********
+Exception Type: System.Web.HttpException
+Exception: A potentially dangerous Request.Path value was detected from the client (:).
+Source: DefaultPage
+Stack Trace: 
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
