@@ -17,8 +17,8 @@ namespace Invensa.Models
         public String Description { get; set; }
 
         public String Country { get; set; }
-        public virtual ICollection<Report> Reports { get; set; }
-		
+        //public virtual ICollection<Report> Reports { get; set; }
+		/*
 		public void InsertNewCompany()
 		{
 			
@@ -27,7 +27,7 @@ namespace Invensa.Models
 		public void Select(  )
 		{
 			
-		}
+		}*/
 		
 	}
 	
