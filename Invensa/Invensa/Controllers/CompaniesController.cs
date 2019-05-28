@@ -22,6 +22,11 @@ namespace Invensa.Controllers
             return View(db.Companies.ToList());
         }
 
+        public ActionResult WACC()
+        {
+            return View();
+        }
+
         // GET: Companies/Details/5
         public ActionResult Details(string id)
         {
