@@ -11,8 +11,9 @@ namespace Invensa.Models
 {
 	public class Protocol
 	{
-		public DateTime Date { get; set; }
-
+        [Display(Name = "Data")]
+        public DateTime Date { get; set; }
+        [Display(Name = "Ar yra Kvorumas?")]
         public Boolean Quorum { get; set; }
 
         public virtual ICollection<Participant> Participants { get; set; }
