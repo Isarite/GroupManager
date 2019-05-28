@@ -188,9 +188,14 @@
     <Compile Include="Migrations\201905280314368_InitialCreate.Designer.cs">
       <DependentUpon>201905280314368_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905281538462_blabla.cs" />
+    <Compile Include="Migrations\201905281538462_blabla.Designer.cs">
+      <DependentUpon>201905281538462_blabla.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\WACCForm.cs" />
     <Compile Include="Views\CRUD\NewCompanyForm.cs" />
     <Compile Include="Views\Library\BookInfo.cs" />
     <Compile Include="Views\Library\BookList.cs" />
@@ -307,6 +312,7 @@
     <Content Include="Views\CRUD\Details.cshtml" />
     <Content Include="Views\CRUD\Edit.cshtml" />
     <Content Include="Views\CRUD\Index.cshtml" />
+    <Content Include="Views\Companies\WACC.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -319,6 +325,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905280314368_InitialCreate.resx">
       <DependentUpon>201905280314368_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905281538462_blabla.resx">
+      <DependentUpon>201905281538462_blabla.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
