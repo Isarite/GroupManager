@@ -30,7 +30,7 @@ namespace Invensa.Library.Controllers
         }
 
         // GET: Books/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             Book book = db.Books.Find(id);
             if (book == null)
@@ -51,7 +51,7 @@ namespace Invensa.Library.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Director,Description,Country")] Book book)
+        public ActionResult Create([Bind(Include = "Title,Author,Quantity,Description")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace Invensa.Library.Controllers
         }
 
         // GET: Books/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
             Book book = db.Books.Find(id);
             if (book == null)
@@ -79,7 +79,7 @@ namespace Invensa.Library.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Title,Director,Description,Country")] Book book)
+        public ActionResult Edit([Bind(Include = "Title,Author,Quantity,Description")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Invensa.Library.Controllers
         }
 
         // GET: Books/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
             Book book = db.Books.Find(id);
             if (book == null)
@@ -101,7 +101,7 @@ namespace Invensa.Library.Controllers
             return View(book);
         }
 
-        public ActionResult Reserve(int id)
+        public ActionResult Reserve(string id)
         {
             Book book = db.Books.Find(id);
             if (book == null)
@@ -133,7 +133,7 @@ namespace Invensa.Library.Controllers
         // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             Book book = db.Books.Find(id);
             db.Books.Remove(book);

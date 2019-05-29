@@ -12,6 +12,7 @@ namespace Invensa.Models
 	public class Book
 	{
         public int Id;
+
         [DisplayName("Pavadinimas")]
 		public String Title { get; set; }
 		
@@ -21,7 +22,7 @@ namespace Invensa.Models
         [DisplayName("Autorius")]
         public String Author { get; set; }
 
-        [DisplayName("Apraðymas")]
+        [DisplayName("Aprašymas")]
         public String Description { get; set; }
 
         public virtual ICollection<Reservation> reservations { get; set; }
