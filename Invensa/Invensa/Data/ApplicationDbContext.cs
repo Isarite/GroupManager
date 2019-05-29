@@ -62,7 +62,7 @@ namespace Invensa.Data
             //modelBuilder.Entity<Cart>()
             //    .HasMany(o => o.OrderedInventoryItems)
             //    .WithOne(o => o.Cart);
-            modelBuilder.Entity<Book>().HasKey(k => new { k.Title, k.Author});
+            modelBuilder.Entity<Book>().HasKey(k => k.Id);
             
             modelBuilder.Entity<Company>().HasKey(k => k.Title);
             modelBuilder.Entity<Participant>().HasKey(k => k.Id);

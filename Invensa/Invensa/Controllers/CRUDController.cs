@@ -30,12 +30,8 @@ namespace Invensa.Library.Controllers
         }
 
         // GET: Books/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Book book = db.Books.Find(id);
             if (book == null)
             {
@@ -68,12 +64,8 @@ namespace Invensa.Library.Controllers
         }
 
         // GET: Books/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Book book = db.Books.Find(id);
             if (book == null)
             {
@@ -99,12 +91,8 @@ namespace Invensa.Library.Controllers
         }
 
         // GET: Books/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Book book = db.Books.Find(id);
             if (book == null)
             {
@@ -113,10 +101,39 @@ namespace Invensa.Library.Controllers
             return View(book);
         }
 
+        public ActionResult Reserve(int id)
+        {
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            int count = book.Quantity;
+            if (count > 0)
+            {
+                Reservation reservation = new Reservation();
+                reservation.Date = DateTime.Now;
+                reservation.ReturnDate = DateTime.Now.AddMonths(1);
+                reservation.IsReturned = false;
+                if (book.reservations == null)
+                    book.reservations = new List<Reservation>();
+                book.reservations.Add(reservation);
+                User user = db.Users.FirstOrDefault();
+                if (user.Reservations == null)
+                    user.Reservations = new List<Reservation>();
+                user.Reservations.Add(reservation);
+                book.Quantity--;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+                return HttpNotFound();
+        }
+
         // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Book book = db.Books.Find(id);
             db.Books.Remove(book);

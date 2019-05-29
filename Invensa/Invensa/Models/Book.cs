@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,6 +11,7 @@ namespace Invensa.Models
 {
 	public class Book
 	{
+        public int Id;
         [DisplayName("Pavadinimas")]
 		public String Title { get; set; }
 		
@@ -22,9 +24,9 @@ namespace Invensa.Models
         [DisplayName("Apraðymas")]
         public String Description { get; set; }
 
-        public virtual Reservation reservation { get; set; }
+        public virtual ICollection<Reservation> reservations { get; set; }
 
-        public virtual Review review { get; set; }
+        public virtual ICollection<Review> reviews { get; set; }
 
         public void TakeBookInfo(  )
 		{

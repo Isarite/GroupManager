@@ -35,9 +35,11 @@
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.ActionLink("Rodyti detalią informaciją", "Details", new { id = new { Title = item.Title, Author = item.Author } }) |
-            @Html.ActionLink("Rašyti atsiliepimą", "Comment", new { id = new { Title = item.Title, Author = item.Author } })
-           
+            @Html.ActionLink("Rodyti detalią informaciją", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Rašyti atsiliepimą", "Comment", new { id = item.Id })
+            @Html.ActionLink("Rezervuoti", "Reserve", new { id = item.Id }) |
+
+
         </td>
     </tr>
 }
