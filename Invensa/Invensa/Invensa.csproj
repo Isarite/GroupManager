@@ -310,6 +310,7 @@
     <Content Include="Views\CRUD\Index.cshtml" />
     <Content Include="Views\Companies\WACC.cshtml" />
     <Content Include="Views\CRUD\Create.cshtml" />
+    <Content Include="Views\CRUD\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,4 +1,4 @@
-
+﻿
 using System.Web.Mvc;
 using System;
 using System.Collections.Generic;
@@ -101,6 +101,46 @@ namespace Invensa.Library.Controllers
             return View(book);
         }
 
+        // GET: Books/Delete/5
+        public ActionResult Comment(string id)
+        {
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.bookId = id;
+            return View();
+        }
+
+        // POST: Books/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment([Bind(Include = "Text")] Review review, string bookId)
+        {
+            review.Date = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+                db.Reviews.Add(review);
+                Book book = db.Books.First(b => b.Title == bookId);
+                if (book.reviews == null)
+                    book.reviews = new List<Review>();
+                book.reviews.Add(review);
+                db.Entry(book).State = EntityState.Modified;
+                User user = db.Users.First();
+                if (user.Reviews == null)
+                    user.Reviews = new List<Review>();
+                user.Reviews.Add(review);
+                db.SaveChanges();
+                TempData["message"] = "Sėkmingai išsaugotas komentaras";
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
         public ActionResult Reserve(string id)
         {
             Book book = db.Books.Find(id);
@@ -124,6 +164,7 @@ namespace Invensa.Library.Controllers
                 user.Reservations.Add(reservation);
                 book.Quantity--;
                 db.SaveChanges();
+                TempData["message"] = "Sėkmingai rezervuota knyga";
                 return RedirectToAction("Index");
             }
             else
@@ -139,6 +180,29 @@ namespace Invensa.Library.Controllers
             db.Books.Remove(book);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Extend(string id)
+        {
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            User user = db.Users.FirstOrDefault();
+            if (user.Reservations != null)
+            {
+                List<Reservation> reservations = book.reservations.ToList();
+                Reservation reservation = user.Reservations.Where(r => reservations.Contains(r)).First();
+                if (reservation == null)
+                    return HttpNotFound();
+                reservation.Date.AddMonths(1);
+                db.Entry(reservation).State = EntityState.Modified;
+                db.SaveChanges();
+                TempData["message"] = "Sėkmingai pratęsta rezervacija";
+                return RedirectToAction("Index");
+            }
+             return HttpNotFound();
         }
 
         protected override void Dispose(bool disposing)
@@ -168,11 +232,7 @@ namespace Invensa.Library.Controllers
 		{
 			
 		}
-		
-		public void Extend(  )
-		{
-			
-		}
+
 		
 		public void OpenMoreInfo(  )
 		{
